@@ -42,7 +42,7 @@ const commonConfig = {
 const index = Object.assign({}, commonConfig, {
     name: 'index',
     entry: [
-        './src/index.ts'
+        './src/index.tsx'
     ],
     output: {
         path: path.join(__dirname, 'dist'),

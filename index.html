@@ -3,40 +3,14 @@
 
 <head>
     <meta charset=utf-8 />
-    <title>ChargeItPro Hosted Payments Demo</title>
-    <script src="/static/bundle.js"></script>
+    <title>Reactx Todo Demo</title>
+    <link rel="stylesheet" href="node_modules/todomvc-common/base.css">
+    <link rel="stylesheet" href="node_modules/todomvc-app-css/index.css">
 </head>
 
 <body>
-    <input id="path" />
-    <button onclick="handleSubmit()">Submit</button>
-
-    <script>
-        var routerConfig = {
-            '/home/:name': printParams
-        };
-
-        var router = new window.Router(routerConfig);
-        router.configure({
-            notfound: printParams,
-            html5history: true
-        });
-        router.init();
-
-        function printParams(params) {
-            console.log('Params from director: ', params);
-        }
-
-        function handleSubmit() {
-            var path = document.getElementById('path').value;
-            pushState(path);
-        }
-
-        function pushState(path) {
-            console.log('pushing state: ', path)
-            window.history.pushState(null, null, path);
-        }
-    </script>
+    <section class="todoapp"></section>
+    <script src="/static/bundle.js"></script>
 </body>
 
 </html>

@@ -4,11 +4,18 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "director": "^1.2.8",
+    "@trevorhanus/reactx": "^0.0.9",
+    "@types/classnames": "^2.2.3",
+    "classnames": "^2.2.5",
+    "mobx": "^3.2.2",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "todomvc-app-css": "^2.1.0",
+    "todomvc-common": "^1.0.4"
   },
   "devDependencies": {
+    "@types/react": "^16.0.5",
+    "@types/react-dom": "^15.5.4",
     "awesome-typescript-loader": "^3.2.3",
     "css-loader": "^0.28.7",
     "file-loader": "^0.11.2",
