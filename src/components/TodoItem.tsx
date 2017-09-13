@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as classNames from 'classnames';
 import {observer, inject} from 'mobx-react';
 import {Todo} from '../models/Todo';
-import {DeleteTodo} from '../actions/DeleteTodo';
+import {deleteTodo} from '../actions';
 
 export interface ITodoItemProps {
     todo: Todo;
@@ -10,23 +10,52 @@ export interface ITodoItemProps {
 
 export interface ITodoItemState {
     editing: boolean;
+    editText: string;
 }
 
 @inject('todoStore')
 @observer
 export class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
     public state: ITodoItemState;
+    private inputRef: HTMLInputElement;
 
     constructor(props: ITodoItemProps) {
         super(props)
         this.state = {
-            editing: false
+            editing: false,
+            editText: ''
         }
+    }
+
+    handleBlur(): void {
+        const val = this.inputRef.value;
+        // updateMessage(this.props.todo.id, val);
+        this.setState({
+            editing: false,
+            editText: ''
+        });
+    }
+
+    handleEdit(e: React.KeyboardEvent<HTMLInputElement>): void {
+        this.setState({
+            editing: true,
+            editText: this.props.todo.message
+        });
+        setTimeout(() => {
+            this.inputRef.focus();
+        });
+    }
+
+    handleChange(e: React.FormEvent<any>): void {
+        const val = this.inputRef.value;
+        this.setState({
+            editText: val
+        });
     }
 
     onDestroy(): void {
         const {todo} = this.props;
-        const deleteTodo = new DeleteTodo({id: todo.id});
+        deleteTodo(todo.id);
     }
 
     onToggle(): void {
@@ -48,18 +77,18 @@ export class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
                         checked={todo.completed}
                         onChange={this.onToggle.bind(this)}
                     />
-                    <label onDoubleClick={ e => this.handleEdit() }>
+                    <label onDoubleClick={this.handleEdit.bind(this)}>
                         {todo.message}
                     </label>
                     <button className="destroy" onClick={this.onDestroy.bind(this)} />
                 </div>
                 <input
-                    ref="editField"
+                    ref={input => this.inputRef = input}
                     className="edit"
                     value={this.state.editText}
-                    onBlur={ e => this.handleSubmit(e) }
-                    onChange={ e => this.handleChange(e) }
-                    onKeyDown={ e => this.handleKeyDown(e) }
+                    onBlur={this.handleBlur.bind(this)}
+                    onChange={this.handleChange.bind(this)}
+                    onKeyDown={ e => true }
                 />
             </li>
         )

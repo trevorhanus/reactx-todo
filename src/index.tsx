@@ -5,10 +5,13 @@ import {Router, router} from '@trevorhanus/reactx';
 import {routes} from './routes';
 import {Store} from './stores/Store';
 
-router.start(routes);
 const store = new Store();
+router.start(routes, store);
+
+// populate the todo store with a couple todos
 store.todos.populate([
-    {id: '1', message: 'stuff'}
+    {id: '1', message: 'learn reactx'},
+    {id: '2', message: 'conquer the World'}
 ]);
 
 const App = observer(() => {

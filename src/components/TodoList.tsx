@@ -12,11 +12,13 @@ const TodoList = inject('todoStore')(observer((props: ITodoListProps) => {
     const {todoStore} = props;
 
     const todos = todoStore.todos.map(todo => {
-        return <TodoItem todo={todo} />
+        return <TodoItem key={todo.id} todo={todo} />
     });
 
     return (
-       <TodoApp todoItems={todos} /> 
+        <ul className="todo-list">
+            {todos}
+        </ul>
     )
 }));
 

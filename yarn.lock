@@ -2,11 +2,21 @@
 # yarn lockfile v1
 
 
-"@trevorhanus/reactx@^0.0.9":
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/@trevorhanus/reactx/-/reactx-0.0.9.tgz#7ce34f28813d2ce1a679a5eedb78581957a0c296"
+"@trevorhanus/actions@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@trevorhanus/actions/-/actions-0.0.4.tgz#25453f869f7bf8d034edb77a034751becfa86703"
   dependencies:
     "@trevorhanus/timer" "^0.1.0"
+    "@types/uuid" "^3.4.0"
+    typescript "^2.5.2"
+    uuid "^3.1.0"
+
+"@trevorhanus/reactx@^0.0.16":
+  version "0.0.16"
+  resolved "https://registry.yarnpkg.com/@trevorhanus/reactx/-/reactx-0.0.16.tgz#a662064de941afd70b6e14b44f494ba193563a8d"
+  dependencies:
+    "@trevorhanus/timer" "^0.1.0"
+    "@types/react" "^16.0.5"
     "@types/uuid" "^3.4.0"
     director "^1.2.8"
     lodash "^4.17.4"
@@ -40,7 +50,7 @@
   version "16.0.5"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.0.5.tgz#d713cf67cc211dea20463d2a0b66005c22070c4b"
 
-"@types/uuid@^3.4.0":
+"@types/uuid@^3.4.0", "@types/uuid@^3.4.2":
   version "3.4.2"
   resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-3.4.2.tgz#b8cde3c32c273d3fc658b96f810e8ff091e1b723"
   dependencies:
@@ -3832,14 +3842,6 @@ to-regex@^3.0.1:
     define-property "^0.2.5"
     extend-shallow "^2.0.1"
     regex-not "^1.0.0"
-
-todomvc-app-css@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/todomvc-app-css/-/todomvc-app-css-2.1.0.tgz#b6f2716d339afa2e5f799347d2a48b05396242a5"
-
-todomvc-common@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/todomvc-common/-/todomvc-common-1.0.4.tgz#23099af886c2f0525bfd4537e078f12d0074309e"
 
 tough-cookie@~2.3.0:
   version "2.3.2"

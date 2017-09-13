@@ -4,14 +4,15 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "@trevorhanus/reactx": "^0.0.9",
+    "@trevorhanus/actions": "^0.0.4",
+    "@trevorhanus/reactx": "^0.0.16",
     "@types/classnames": "^2.2.3",
+    "@types/uuid": "^3.4.2",
     "classnames": "^2.2.5",
     "mobx": "^3.2.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "todomvc-app-css": "^2.1.0",
-    "todomvc-common": "^1.0.4"
+    "uuid": "^3.1.0"
   },
   "devDependencies": {
     "@types/react": "^16.0.5",

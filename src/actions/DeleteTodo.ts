@@ -1,4 +1,4 @@
-import {Action} from '@trevorhanus/reactx';
+import {Action} from '@trevorhanus/actions';
 import {Store} from '../stores/Store';
 
 export interface IDeleteTodoParams {
