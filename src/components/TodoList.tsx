@@ -24,4 +24,4 @@ const TodoList = inject('todoStore')(observer((props: ITodoListProps) => {
 
 export {
     TodoList
-};
+}

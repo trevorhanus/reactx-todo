@@ -14,16 +14,16 @@ const TodoFooter = inject('todoStore')(observer((props: ITodoFooterProps) => {
     const {todoStore} = props;
 
     const activeTodoWord = 'items';
-    const nowShowing: string = 'ALL_TODOS';
+    const nowShowing = router.currentRoute.queryParams.filter ? router.currentRoute.queryParams.filter.toUpperCase() : null;
 
     var clearButton = null;
     if (todoStore.completedCount > 0) {
         clearButton = (
-        <button
-            className="clear-completed"
-            onClick={clearCompleted}>
-            Clear completed
-        </button>
+            <button
+                className="clear-completed"
+                onClick={clearCompleted}>
+                Clear completed
+            </button>
         );
     }
 
@@ -36,8 +36,8 @@ const TodoFooter = inject('todoStore')(observer((props: ITodoFooterProps) => {
                 <li>
                     <Link 
                     name='todos'
-                    queryParams={{all: 'true'}}
-                    className={classNames({selected: router.currentRoute.queryParams.all === 'true'})}>
+                    queryParams={{filter: 'all'}}
+                    className={classNames({selected: nowShowing === 'ALL' || !nowShowing})}>
                         All
                     </Link>
                 </li>
@@ -45,8 +45,8 @@ const TodoFooter = inject('todoStore')(observer((props: ITodoFooterProps) => {
                 <li>
                     <Link 
                     name='todos'
-                    queryParams={{active: 'true'}}
-                    className={classNames({selected: router.currentRoute.queryParams.active === 'true'})}>
+                    queryParams={{filter: 'active'}}
+                    className={classNames({selected: nowShowing === 'ACTIVE'})}>
                         Active
                     </Link>
                 </li>
@@ -54,8 +54,8 @@ const TodoFooter = inject('todoStore')(observer((props: ITodoFooterProps) => {
                 <li>
                     <Link 
                     name='todos'
-                    queryParams={{completed: 'true'}}
-                    className={classNames({selected: router.currentRoute.queryParams.completed === 'true'})}>
+                    queryParams={{filter: 'completed'}}
+                    className={classNames({selected: nowShowing === 'COMPLETED'})}>
                         Completed
                     </Link>
                 </li>

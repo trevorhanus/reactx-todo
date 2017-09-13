@@ -9,6 +9,7 @@ import {DeleteTodo} from './DeleteTodo';
 import {FilterTodos} from './FilterTodos';
 import {Login} from './Login';
 import {ToggleAll} from './ToggleAll';
+import {UpdateTodo} from './UpdateTodo';
 
 export function addTodo(message: string): void {
     const action = new AddTodo({message});
@@ -25,8 +26,11 @@ export function clearCompleted(): void {
     Actions.dispatch(action);
 }
 
-export function filterTodos(filter: 'ALL' | 'ACTIVE' | 'COMPLETED'): void {
-    const action = new FilterTodos({filter});
+export function filterTodos(filter: string): void {
+    if (!filter) return;
+    filter = filter.toUpperCase();
+    if (['ALL', 'ACTIVE', 'COMPLETED'].indexOf(filter) === -1) return;
+    const action = new FilterTodos({filter: (filter as 'ALL' | 'ACTIVE' | 'COMPLETED')});
     Actions.dispatch(action);
 }
 
@@ -37,5 +41,10 @@ export function login(username: string, password: string): void {
 
 export function toggleAll(): void {
     const action = new ToggleAll({});
+    Actions.dispatch(action);
+}
+
+export function updateTodo(id: string, newMessage: string): void {
+    const action = new UpdateTodo({todoId: id, newMessage});
     Actions.dispatch(action);
 }

@@ -8,7 +8,7 @@ export class Store {
 
     constructor() {
         // create the dispatcher instance and pass the store 
-        // so it can be passed to the invoke method of our actions
+        // so the store can be passed to the invoke method of our actions
         Actions.createDispatcher<Store>(this);
         this.loggedIn = false;
         this.todos = new TodoStore();

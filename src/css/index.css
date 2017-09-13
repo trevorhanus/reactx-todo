@@ -123,12 +123,13 @@ label[for='toggle-all'] {
 
 .toggle-all {
 	position: absolute;
-	top: -55px;
-	left: -12px;
+	top: 12px;
+	left: -13px;
 	width: 60px;
 	height: 34px;
 	text-align: center;
 	border: none; /* Mobile Safari */
+	z-index: 1;
 }
 
 .toggle-all:before {
@@ -344,6 +345,32 @@ html .clear-completed:active {
 }
 
 .info a:hover {
+	text-decoration: underline;
+}
+
+.undo-redo-buttons {
+	position: absolute;
+    top: -30px;
+	right: 10px;
+}
+
+.undo-redo-buttons button {
+	line-height: 20px;
+	text-decoration: none;
+	cursor: pointer;
+	margin-left: 10px;
+}
+
+.undo-redo-buttons button.disabled {
+	opacity: .5;
+	cursor: not-allowed;
+}
+
+.undo-redo-buttons button.disabled:hover {
+	text-decoration: none;
+}
+
+.undo-redo-buttons button:hover {
 	text-decoration: underline;
 }
 

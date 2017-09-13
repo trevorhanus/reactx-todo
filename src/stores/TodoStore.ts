@@ -65,6 +65,10 @@ export class TodoStore {
         this._filter = filter;
     }
 
+    get(id: string): ITodo {
+        return this._todos.get(id);
+    }
+
     @action
     populate(todos: ITodo[]): void {
         todos.forEach(todoProps => {
