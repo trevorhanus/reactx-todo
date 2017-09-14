@@ -16,8 +16,13 @@ const TodoList = inject('todoStore')(observer((props: ITodoListProps) => {
     });
 
     return (
+        
         <ul className="todo-list">
-            {todos}
+            {
+                todoStore.loading 
+                ? <div> Loading </div> 
+                : todos
+            }
         </ul>
     )
 }));

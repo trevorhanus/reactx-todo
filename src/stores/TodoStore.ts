@@ -3,12 +3,14 @@ import {Todo, ITodo} from '../models/Todo';
 import {v4 as uuidv4} from 'uuid';
 
 export class TodoStore {
-    @observable _todos: ObservableMap<Todo>;
     @observable _filter: 'ALL' | 'ACTIVE' | 'COMPLETED';
+    @observable loading: boolean;
+    @observable _todos: ObservableMap<Todo>;
 
     constructor() {
-        this._todos = observable.map<Todo>();
         this._filter = 'ALL';
+        this.loading = false;
+        this._todos = observable.map<Todo>();
     }
 
     @computed

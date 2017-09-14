@@ -1,4 +1,5 @@
 import {Actions} from '@trevorhanus/actions';
+import {FetchTodos} from './FetchTodos';
 
 // for development purposes only
 (window as any).Actions = Actions;
@@ -18,6 +19,11 @@ export function addTodo(message: string): void {
 
 export function deleteTodo(id: string): void {
     const action = new DeleteTodo({id});
+    Actions.dispatch(action);
+}
+
+export function fetchTodos(): void {
+    const action = new FetchTodos();
     Actions.dispatch(action);
 }
 

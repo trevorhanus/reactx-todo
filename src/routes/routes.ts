@@ -1,9 +1,10 @@
 import {Auth} from '../components/Auth';
-import {filterTodos} from '../actions';
+import {filterTodos, fetchTodos} from '../actions';
 import {Route, router, IViewState} from '@trevorhanus/reactx';
 import {Store} from '../stores/Store';
 import {TodoApp} from '../components/App';
 import {TodoList} from '../components/TodoList';
+import {UsersList} from '../components/UsersList';
 
 const app = new Route({
     name: 'app',
@@ -23,12 +24,20 @@ const app = new Route({
             path: '/',
             component: TodoList,
             acceptedQueryParams: ['filter'],
-            onEnter: (state) => {
+            beforeEnter: () => {
+                fetchTodos();
+            },
+            onEnter: (state: IViewState) => {
                 const {query} = state;
                 if (query.filter !== null && query.filter !== undefined) {
                     filterTodos(query.filter);
                 }
             }
+        }),
+        new Route({
+            name: 'users',
+            path: '/users',
+            component: UsersList
         })
     ]
 });
