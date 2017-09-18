@@ -3,7 +3,7 @@ import {observable, computed, action} from 'mobx';
 export interface ITodo {
     id: string;
     message: string;
-    setMessage: (message: string) => void;
+    setMessage?: (message: string) => void;
 }
 
 export class Todo {
