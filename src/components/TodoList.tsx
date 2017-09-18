@@ -1,18 +1,17 @@
+import { inject, observer } from 'mobx-react';
 import * as React from 'react';
-import {inject, observer} from 'mobx-react';
-import {TodoApp} from './App';
-import {TodoItem} from './TodoItem';
-import {TodoStore} from '../stores/TodoStore';
+import { TodoStore } from '../stores/TodoStore';
+import { TodoItem } from './TodoItem';
 
 export interface ITodoListProps {
     todoStore?: TodoStore;
 }
 
-const TodoList = inject('todoStore')(observer((props: ITodoListProps) => {
+export const TodoList = inject('todoStore')(observer((props: ITodoListProps) => {
     const {todoStore} = props;
 
     const todos = todoStore.todos.map(todo => {
-        return <TodoItem key={todo.id} todo={todo} />
+        return <TodoItem key={todo.id} todo={todo} />;
     });
 
     return (
@@ -24,9 +23,5 @@ const TodoList = inject('todoStore')(observer((props: ITodoListProps) => {
                 : todos
             }
         </ul>
-    )
+    );
 }));
-
-export {
-    TodoList
-}

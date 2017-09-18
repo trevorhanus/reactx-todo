@@ -1,16 +1,14 @@
+import { observer } from 'mobx-react';
 import * as React from 'react';
-import {findDOMNode} from 'react-dom';
-import {observer} from 'mobx-react';
-import {addTodo, toggleAll} from '../actions';
-import {AddTodoControl} from './AddTodoControl';
-import {TodoHeader} from './TodoHeader';
-import {TodoFooter} from './TodoFooter';
+import { AddTodoControl } from './AddTodoControl';
+import { TodoFooter } from './TodoFooter';
+import { TodoHeader } from './TodoHeader';
 
 export interface ITodoAppProps {
     routerOutlet?: any; // component rendered from the nested routes
 }
 
-const TodoApp = observer((props: ITodoAppProps) => {
+export const TodoApp = observer((props: ITodoAppProps) => {
 
     return (
         <div>
@@ -21,9 +19,5 @@ const TodoApp = observer((props: ITodoAppProps) => {
             </section>
             <TodoFooter />
         </div>
-    )
+    );
 });
-
-export {
-    TodoApp
-};

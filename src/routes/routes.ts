@@ -1,10 +1,10 @@
-import {Auth} from '../components/Auth';
-import {filterTodos, fetchTodos} from '../actions';
-import {Route, router, IViewState} from '@trevorhanus/reactx';
-import {Store} from '../stores/Store';
-import {TodoApp} from '../components/App';
-import {TodoList} from '../components/TodoList';
-import {UsersList} from '../components/UsersList';
+import { IViewState, Route } from '@trevorhanus/reactx';
+import { fetchTodos, filterTodos } from '../actions';
+import { TodoApp } from '../components/App';
+import { Auth } from '../components/Auth';
+import { TodoList } from '../components/TodoList';
+import { UsersList } from '../components/UsersList';
+import { Store } from '../stores/Store';
 
 const app = new Route({
     name: 'app',
@@ -12,7 +12,7 @@ const app = new Route({
     component: TodoApp,
     // verify that the user is logged in 
     // before we show any route nested under the 'app' route
-    beforeEnter: (state: IViewState, store: Store) => { 
+    beforeEnter: (state: IViewState, store: Store) => {
         // if (!store.loggedIn) {
         //     router.goTo('login');
         //     return false;
@@ -28,28 +28,24 @@ const app = new Route({
                 fetchTodos();
             },
             onEnter: (state: IViewState) => {
-                const {query} = state;
+                const { query } = state;
                 if (query.filter !== null && query.filter !== undefined) {
                     filterTodos(query.filter);
                 }
-            }
+            },
         }),
         new Route({
             name: 'users',
             path: '/users',
-            component: UsersList
-        })
-    ]
+            component: UsersList,
+        }),
+    ],
 });
 
 const login = new Route({
     name: 'login',
     path: '/login',
-    component: Auth
+    component: Auth,
 });
 
-const routes = [app, login];
-
-export {
-    routes
-}
+export const routes = [app, login];

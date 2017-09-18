@@ -1,6 +1,6 @@
-import {ReversibleAction} from '@trevorhanus/actions';
-import {Store} from '../stores/Store';
-import {Todo} from '../models/Todo';
+import { ReversibleAction } from '@trevorhanus/actions';
+import { Todo } from '../models/Todo';
+import { Store } from '../stores/Store';
 
 export interface IAddTodoParams {
     message: string;

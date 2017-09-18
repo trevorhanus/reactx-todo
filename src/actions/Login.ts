@@ -1,8 +1,7 @@
-import {Action} from '@trevorhanus/actions';
-import {action} from 'mobx';
-import {router} from '@trevorhanus/reactx';
-import {Store} from '../stores/Store';
-import {Todo} from '../models/Todo';
+import { Action } from '@trevorhanus/actions';
+import { router } from '@trevorhanus/reactx';
+import { action } from 'mobx';
+import { Store } from '../stores/Store';
 
 export interface ILoginParams {
     username: string;
@@ -21,9 +20,10 @@ export class Login extends Action<Store, ILoginParams> {
         const {username, password} = this.params;
         console.log(`logging in with ${username}:${password}`);
         // simulate a callout
+        const pause = 1500;
         setTimeout(() => {
             store.loggedIn = true;
             router.goTo('todos');
-        }, 1500);
+        }, pause);
     }
 }

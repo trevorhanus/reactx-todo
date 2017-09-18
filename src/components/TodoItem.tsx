@@ -1,15 +1,15 @@
-import * as React from 'react';
 import * as classNames from 'classnames';
-import {observer, inject} from 'mobx-react';
-import {Todo} from '../models/Todo';
-import {deleteTodo} from '../actions';
-import {updateTodo} from '../actions';
+import { inject, observer } from 'mobx-react';
+import * as React from 'react';
+import { deleteTodo, updateTodo } from '../actions';
+import { Todo } from '../models/Todo';
+import { Keys } from '../utils/Keys';
 
-/*
-    Here is an example of a class based React.Component with internal state. With mobx it is
-    rare to use internal state in a Component, but there are times when it is useful. This 
-    component uses the internal state to hide and show the edit input field.
-*/
+/**
+ *  Here is an example of a class based React.Component with internal state. With mobx it is
+ *  rare to use internal state in a Component, but there are times when it is useful. This
+ *  component uses the internal state to hide and show the edit input field.
+ */
 
 export interface ITodoItemProps {
     todo: Todo;
@@ -23,15 +23,15 @@ export interface ITodoItemState {
 @inject('todoStore')
 @observer
 export class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
-    public state: ITodoItemState;
+    state: ITodoItemState;
     private inputRef: HTMLInputElement;
 
     constructor(props: ITodoItemProps) {
-        super(props)
+        super(props);
         this.state = {
             editing: false,
-            editText: ''
-        }
+            editText: '',
+        };
     }
 
     handleBlur(): void {
@@ -39,21 +39,21 @@ export class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
         updateTodo(this.props.todo.id, val);
         this.setState({
             editing: false,
-            editText: ''
+            editText: '',
         });
     }
 
     handleChange(e: React.FormEvent<any>): void {
         const val = this.inputRef.value;
         this.setState({
-            editText: val
+            editText: val,
         });
     }
 
     handleEdit(e: React.KeyboardEvent<HTMLInputElement>): void {
         this.setState({
             editing: true,
-            editText: this.props.todo.message
+            editText: this.props.todo.message,
         });
         setTimeout(() => {
             this.inputRef.focus();
@@ -61,7 +61,7 @@ export class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
     }
 
     handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>): void {
-        if (e.keyCode !== 13) {
+        if (e.keyCode !== Keys.Enter) {
             return;
         }
 
@@ -84,7 +84,7 @@ export class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
         return (
             <li className={classNames({
                 completed: todo.completed,
-                editing: this.state.editing
+                editing: this.state.editing,
             })}>
                 <div className="view">
                     <input
@@ -107,6 +107,6 @@ export class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
                     onKeyDown={this.handleKeyDown.bind(this)}
                 />
             </li>
-        )
+        );
     }
 }

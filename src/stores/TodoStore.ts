@@ -1,6 +1,6 @@
-import {action, computed, observable, ObservableMap} from 'mobx';
-import {Todo, ITodo} from '../models/Todo';
-import {v4 as uuidv4} from 'uuid';
+import { action, computed, observable, ObservableMap } from 'mobx';
+import { v4 as uuidv4 } from 'uuid';
+import { ITodo, Todo } from '../models/Todo';
 
 export class TodoStore {
     @observable _filter: 'ALL' | 'ACTIVE' | 'COMPLETED';

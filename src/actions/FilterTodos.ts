@@ -1,5 +1,5 @@
-import {Action} from '@trevorhanus/actions';
-import {Store} from '../stores/Store';
+import { Action } from '@trevorhanus/actions';
+import { Store } from '../stores/Store';
 
 export interface IFilterTodosParams {
     filter: 'ALL' | 'ACTIVE' | 'COMPLETED';

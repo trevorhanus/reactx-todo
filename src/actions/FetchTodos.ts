@@ -1,5 +1,5 @@
-import {Action} from '@trevorhanus/actions';
-import {Store} from '../stores/Store';
+import { Action } from '@trevorhanus/actions';
+import { Store } from '../stores/Store';
 
 export class FetchTodos extends Action<Store,any> {
     name = 'FETCH_TODOS';
@@ -10,12 +10,13 @@ export class FetchTodos extends Action<Store,any> {
 
     invoke(store: Store): void {
         store.todos.loading = true;
-        setTimeout(()=> {
+        const pause = 3000;
+        setTimeout(() => {
             store.todos.populate([
                 {id: '1', message: 'learn reactx'},
-                {id: '2', message: 'conquer the World'}
+                {id: '2', message: 'conquer the World'},
             ] as any);
-            store.todos.loading =false;
-        }, 3000)
+            store.todos.loading = false;
+        }, pause);
     }
 }

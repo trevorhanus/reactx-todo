@@ -1,6 +1,6 @@
+import { observer } from 'mobx-react';
 import * as React from 'react';
-import {observer} from 'mobx-react';
-import {login} from '../actions';
+import { login } from '../actions';
 
 export interface IAuthProps {}
 
@@ -17,9 +17,7 @@ const Auth = observer((props: IAuthProps) => {
             <br/>
             <button onClick={handleSubmit}>Login</button>
         </div>
-    )
+    );
 });
 
-export {
-    Auth
-};
+export { Auth };

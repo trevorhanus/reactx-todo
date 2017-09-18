@@ -1,4 +1,4 @@
-import {observable, computed, action} from 'mobx';
+import { action, computed, observable } from 'mobx';
 
 export interface ITodo {
     id: string;

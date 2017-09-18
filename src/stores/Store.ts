@@ -1,6 +1,6 @@
-import {Actions} from '@trevorhanus/actions';
-import {observable} from 'mobx';
-import {TodoStore} from './TodoStore';
+import { Actions } from '@trevorhanus/actions';
+import { observable } from 'mobx';
+import { TodoStore } from './TodoStore';
 
 export class Store {
     @observable loggedIn: boolean;

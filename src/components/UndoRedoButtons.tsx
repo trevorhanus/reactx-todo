@@ -1,8 +1,8 @@
-import * as React from 'react';
-import {Actions} from '@trevorhanus/actions';
+import { Actions } from '@trevorhanus/actions';
 import * as classNames from 'classnames';
-import {findDOMNode} from 'react-dom';
-import {inject, observer} from 'mobx-react';
+import { inject, observer } from 'mobx-react';
+import * as React from 'react';
+import { findDOMNode } from 'react-dom';
 
 const UndoRedoButtons = inject()(observer((props: {}) => {
     const canUndo = Actions.dispatcher.canUndo;
@@ -11,12 +11,12 @@ const UndoRedoButtons = inject()(observer((props: {}) => {
         if (Actions.dispatcher.canUndo) {
             Actions.dispatcher.undo();
         }
-    }
+    };
     const handleRedo = () => {
         if (Actions.dispatcher.canRedo) {
             Actions.dispatcher.redo();
         }
-    }
+    };
 
     return (
         <div className="undo-redo-buttons">
@@ -33,9 +33,9 @@ const UndoRedoButtons = inject()(observer((props: {}) => {
                 Redo
             </button>
         </div>
-    )
+    );
 }));
 
 export {
-    UndoRedoButtons
+    UndoRedoButtons,
 };

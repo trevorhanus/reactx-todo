@@ -1,25 +1,26 @@
+import { observer } from 'mobx-react';
 import * as React from 'react';
-import {addTodo, toggleAll} from '../actions';
-import {findDOMNode} from 'react-dom';
-import {observer} from 'mobx-react';
-import {UndoRedoButtons} from './UndoRedoButtons';
+import { findDOMNode } from 'react-dom';
+import { addTodo, toggleAll } from '../actions';
+import { Keys } from '../utils/Keys';
+import { UndoRedoButtons } from './UndoRedoButtons';
 
 const AddTodoControl = observer((props: {}) => {
-    let newFieldRef = null;
+    let newFieldRef;
 
-    const handleNewTodoKeyDown = (event : React.KeyboardEvent<any>) => {
-        if (event.keyCode !== 13) {
+    const handleNewTodoKeyDown = (event: React.KeyboardEvent<any>) => {
+        if (event.keyCode !== Keys.Enter) {
           return;
         }
     
         event.preventDefault();
     
-        var val = findDOMNode<HTMLInputElement>(newFieldRef).value.trim();
+        const val = findDOMNode<HTMLInputElement>(newFieldRef).value.trim();
         if (val) {
             addTodo(val);
             findDOMNode<HTMLInputElement>(newFieldRef).value = '';
         }
-    }
+    };
 
     return (
         <section className="add-todo-control">
@@ -37,9 +38,9 @@ const AddTodoControl = observer((props: {}) => {
             />
             <UndoRedoButtons />
         </section>
-    )
+    );
 });
 
 export {
-    AddTodoControl
-}
+    AddTodoControl,
+};

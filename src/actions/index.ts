@@ -1,16 +1,15 @@
-import {Actions} from '@trevorhanus/actions';
-import {FetchTodos} from './FetchTodos';
+import { Actions } from '@trevorhanus/actions';
+import { AddTodo } from './AddTodo';
+import { ClearCompleted } from './ClearCompleted';
+import { DeleteTodo } from './DeleteTodo';
+import { FetchTodos } from './FetchTodos';
+import { FilterTodos } from './FilterTodos';
+import { Login } from './Login';
+import { ToggleAll } from './ToggleAll';
+import { UpdateTodo } from './UpdateTodo';
 
 // for development purposes only
 (window as any).Actions = Actions;
-
-import {AddTodo} from './AddTodo';
-import {ClearCompleted} from './ClearCompleted';
-import {DeleteTodo} from './DeleteTodo';
-import {FilterTodos} from './FilterTodos';
-import {Login} from './Login';
-import {ToggleAll} from './ToggleAll';
-import {UpdateTodo} from './UpdateTodo';
 
 export function addTodo(message: string): void {
     const action = new AddTodo({message});
@@ -34,9 +33,9 @@ export function clearCompleted(): void {
 
 export function filterTodos(filter: string): void {
     if (!filter) return;
-    filter = filter.toUpperCase();
-    if (['ALL', 'ACTIVE', 'COMPLETED'].indexOf(filter) === -1) return;
-    const action = new FilterTodos({filter: (filter as 'ALL' | 'ACTIVE' | 'COMPLETED')});
+    const f = filter.toUpperCase();
+    if (['ALL', 'ACTIVE', 'COMPLETED'].indexOf(f) === -1) return;
+    const action = new FilterTodos({filter: (f as 'ALL' | 'ACTIVE' | 'COMPLETED')});
     Actions.dispatch(action);
 }
 

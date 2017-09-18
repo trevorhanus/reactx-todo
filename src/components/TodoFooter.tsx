@@ -1,10 +1,9 @@
-import * as React from 'react';
+import { Link, router } from '@trevorhanus/reactx';
 import * as classNames from 'classnames';
-import {clearCompleted} from '../actions';
-import {inject, observer} from 'mobx-react';
-import {Link} from '@trevorhanus/reactx';
-import {TodoStore} from '../stores/TodoStore';
-import {router} from '@trevorhanus/reactx';
+import { inject, observer } from 'mobx-react';
+import * as React from 'react';
+import { clearCompleted } from '../actions';
+import { TodoStore } from '../stores/TodoStore';
 
 export interface ITodoFooterProps {
     todoStore?: TodoStore;
@@ -14,9 +13,10 @@ const TodoFooter = inject('todoStore')(observer((props: ITodoFooterProps) => {
     const {todoStore} = props;
 
     const activeTodoWord = 'items';
-    const nowShowing = router.currentRoute.queryParams.filter ? router.currentRoute.queryParams.filter.toUpperCase() : null;
+    const {queryParams} = router.currentRoute;
+    const nowShowing = queryParams.filter ? queryParams.filter.toUpperCase() : undefined;
 
-    var clearButton = null;
+    let clearButton = undefined;
     if (todoStore.completedCount > 0) {
         clearButton = (
             <button
@@ -35,7 +35,7 @@ const TodoFooter = inject('todoStore')(observer((props: ITodoFooterProps) => {
             <ul className="filters">
                 <li>
                     <Link 
-                    name='todos'
+                    name="todos"
                     queryParams={{filter: 'all'}}
                     className={classNames({selected: nowShowing === 'ALL' || !nowShowing})}>
                         All
@@ -44,7 +44,7 @@ const TodoFooter = inject('todoStore')(observer((props: ITodoFooterProps) => {
                 {' '}
                 <li>
                     <Link 
-                    name='todos'
+                    name="todos"
                     queryParams={{filter: 'active'}}
                     className={classNames({selected: nowShowing === 'ACTIVE'})}>
                         Active
@@ -53,7 +53,7 @@ const TodoFooter = inject('todoStore')(observer((props: ITodoFooterProps) => {
                 {' '}
                 <li>
                     <Link 
-                    name='todos'
+                    name="todos"
                     queryParams={{filter: 'completed'}}
                     className={classNames({selected: nowShowing === 'COMPLETED'})}>
                         Completed
@@ -62,9 +62,9 @@ const TodoFooter = inject('todoStore')(observer((props: ITodoFooterProps) => {
             </ul>
             {clearButton}
         </footer>
-    )
+    );
 }));
 
 export {
-    TodoFooter
+    TodoFooter,
 };

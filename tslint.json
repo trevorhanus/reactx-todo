@@ -1,0 +1,82 @@
+{
+    "extends": [
+    ],
+    "rules": {
+        "prefer-const": [true, {"destructuring": "any"}],
+        "no-var-keyword": true,
+        "object-literal-shorthand": true,
+        "object-literal-key-quotes": [true, "as-needed"],
+        "quotemark": [true, "single", "jsx-double"],
+        "prefer-template": [true, "allow-single-concat"],
+        "no-eval": true,
+        "space-before-function-paren": [true, {
+            "anonymous": "always",
+            "named": "never",
+            "asyncArrow": "never",
+            "method": "never",
+            "constructor": "never"
+        }],
+        "no-parameter-reassignment": true,
+        "prefer-object-spread": true,
+        "only-arrow-functions": [true, "allow-declarations", "allow-named-functions"],
+        "arrow-return-shorthand": true,
+        "arrow-parens": [true, "ban-single-arg-parens"],
+        "ordered-imports": true,
+        "one-variable-per-declaration": [true, "ignore-for-loop"],
+        "ban": [
+            true,
+            {
+                "name": "isFinite", 
+                "message": "use Number.isFinite instead"
+            },
+            {
+                "name": "isNaN", 
+                "message": "use Number.isNaN instead"
+            }
+        ],
+        "no-duplicate-imports": true,
+        "no-default-export": true,
+        "triple-equals": [true, "allow-null-check", "allow-undefined-check"],
+        "curly": [true, "ignore-same-line"],
+        "comment-format": [true, "check-space", "check-lowercase"],
+        "indent": [true, "spaces", 4],
+        "eofline": true,
+        "max-line-length": [true, 100],
+        "trailing-comma": [true, {"multiline": "always", "singleline": "never"}],
+        "semicolon": [true, "always"],
+        "radix": true,
+        "ban-types": [true, ["Object", "Use {} instead."], ["String"]],
+        "member-access": [true, "no-public"],
+        "no-magic-numbers": true,
+        "no-namespace": true,
+        "no-reference": true,
+        "prefer-for-of": true,
+        "typedef-whitespace": [
+            true,
+            {
+                "call-signature": "nospace",
+                "index-signature": "nospace",
+                "parameter": "nospace",
+                "property-declaration": "nospace",
+                "variable-declaration": "nospace"
+            },
+            {
+                "call-signature": "onespace",
+                "index-signature": "onespace",
+                "parameter": "onespace",
+                "property-declaration": "onespace",
+                "variable-declaration": "onespace"
+            }
+        ],
+        "no-conditional-assignment": true,
+        "no-construct": true,
+        "no-duplicate-super": true,
+        "no-duplicate-variable": [true, "check-parameters"],
+        "no-empty": [true, "allow-empty-catch"],
+        "no-for-in-array": true,
+        "no-invalid-this": [true, "check-function-in-method"],
+        "no-null-keyword": true,
+        "no-string-literal": true,
+        "whitespace": [true, "check-branch", "check-operator", "check-module"]
+    }
+}
