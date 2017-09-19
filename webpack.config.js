@@ -1,6 +1,6 @@
-var path = require('path');
-var webpack = require('webpack');
-var TSLintPlugin = require('tslint-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
+const TSLintPlugin = require('tslint-webpack-plugin');
 
 const commonConfig = {
     devtool: 'eval',
@@ -10,7 +10,9 @@ const commonConfig = {
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new TSLintPlugin({
-            files: ['./src/**/*.ts', './src/**/*.tsx']
+            files: ['./src/**/*.ts', './src/**/*.tsx', './src/**/*.d.ts'],
+            project: './tsconfig.json',
+            strictNullChecks: true
         }),
     ],
     module: {

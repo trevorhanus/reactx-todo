@@ -19,6 +19,7 @@ export class TodoStore {
         this._todos.forEach(todo => {
             if (!todo.completed) count++;
         });
+
         return count;
     }
 
@@ -28,6 +29,7 @@ export class TodoStore {
         this._todos.forEach(todo => {
             if (todo.completed) count++;
         });
+
         return count;
     }
 
@@ -36,10 +38,10 @@ export class TodoStore {
         switch (this._filter) {
             case 'ACTIVE':
                 return this._todos.values().filter(todo => !todo.completed);
-            
+
             case 'COMPLETED':
                 return this._todos.values().filter(todo => todo.completed);
-            
+
             default:
                 return this._todos.values();
         }
@@ -50,6 +52,7 @@ export class TodoStore {
         const id = uuidv4();
         const todo = new Todo(id, message);
         this._todos.set(todo.id, todo);
+
         return todo;
     }
 

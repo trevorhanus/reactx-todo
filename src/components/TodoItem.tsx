@@ -16,8 +16,8 @@ export interface ITodoItemProps {
 }
 
 export interface ITodoItemState {
-    editing: boolean;
     editText: string;
+    editing: boolean;
 }
 
 @inject('todoStore')
@@ -29,8 +29,8 @@ export class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
     constructor(props: ITodoItemProps) {
         super(props);
         this.state = {
-            editing: false,
             editText: '',
+            editing: false,
         };
     }
 
@@ -38,8 +38,8 @@ export class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
         const val = this.inputRef.value;
         updateTodo(this.props.todo.id, val);
         this.setState({
-            editing: false,
             editText: '',
+            editing: false,
         });
     }
 
@@ -52,8 +52,8 @@ export class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
 
     handleEdit(e: React.KeyboardEvent<HTMLInputElement>): void {
         this.setState({
-            editing: true,
             editText: this.props.todo.message,
+            editing: true,
         });
         setTimeout(() => {
             this.inputRef.focus();
@@ -80,7 +80,7 @@ export class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
 
     render() {
         const {todo} = this.props;
-        
+
         return (
             <li className={classNames({
                 completed: todo.completed,

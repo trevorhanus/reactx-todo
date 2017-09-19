@@ -6,12 +6,16 @@ import { TodoList } from '../components/TodoList';
 import { UsersList } from '../components/UsersList';
 import { Store } from '../stores/Store';
 
+/* tslint:disable:object-literal-sort-keys */
+
 const app = new Route({
+    component: TodoApp,
     name: 'app',
     path: '/',
-    component: TodoApp,
-    // verify that the user is logged in 
-    // before we show any route nested under the 'app' route
+    /**
+     * verify that the user is logged in
+     * before we show any nested route under the 'app' route
+     */
     beforeEnter: (state: IViewState, store: Store) => {
         // if (!store.loggedIn) {
         //     router.goTo('login');

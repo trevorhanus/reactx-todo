@@ -9,13 +9,16 @@
         "quotemark": [true, "single", "jsx-double"],
         "prefer-template": [true, "allow-single-concat"],
         "no-eval": true,
-        "space-before-function-paren": [true, {
-            "anonymous": "always",
-            "named": "never",
-            "asyncArrow": "never",
-            "method": "never",
-            "constructor": "never"
-        }],
+        "space-before-function-paren": [
+            true,
+            {
+                "anonymous": "always",
+                "named": "never",
+                "asyncArrow": "always",
+                "method": "never",
+                "constructor": "never"
+            }
+        ],
         "no-parameter-reassignment": true,
         "prefer-object-spread": true,
         "only-arrow-functions": [true, "allow-declarations", "allow-named-functions"],
@@ -26,11 +29,11 @@
         "ban": [
             true,
             {
-                "name": "isFinite", 
+                "name": "isFinite",
                 "message": "use Number.isFinite instead"
             },
             {
-                "name": "isNaN", 
+                "name": "isNaN",
                 "message": "use Number.isNaN instead"
             }
         ],
@@ -40,10 +43,8 @@
         "curly": [true, "ignore-same-line"],
         "comment-format": [true, "check-space", "check-lowercase"],
         "indent": [true, "spaces", 4],
-        "eofline": true,
-        "max-line-length": [true, 100],
         "trailing-comma": [true, {"multiline": "always", "singleline": "never"}],
-        "semicolon": [true, "always"],
+        "semicolon": [true, "always", "ignore-interfaces", "ignore-bound-class-methods"],
         "radix": true,
         "ban-types": [true, ["Object", "Use {} instead."], ["String"]],
         "member-access": [true, "no-public"],
@@ -77,6 +78,61 @@
         "no-invalid-this": [true, "check-function-in-method"],
         "no-null-keyword": true,
         "no-string-literal": true,
-        "whitespace": [true, "check-branch", "check-operator", "check-module"]
+        "prefer-conditional-expression": true,
+        "restrict-plus-operands": true,
+        "strict-boolean-expressions": true,
+        "strict-type-predicates": true,
+        "switch-default": true,
+        "typeof-compare": true,
+        "use-isnan": true,
+        "cyclomatic-complexity": true,
+        "linebreak-style": [true, "LF"],
+        "max-classes-per-file": [true, 3],
+        "max-line-length": [true, 100],
+        "max-file-line-count": [true, 300],
+        "eofline": true,
+        "no-require-imports": true,
+        "object-literal-sort-keys": [
+            true,
+            "match-declaration-order"
+        ],
+        "array-type": [true, "array"],
+        "binary-expression-operand-order": true,
+        "class-name": true,
+        "import-spacing": true,
+        "interface-name": [true, "always-prefix"],
+        "interface-over-type-literal": true,
+        "newline-before-return": true,
+        "new-parens": true,
+        "no-angle-bracket-type-assertion": true,
+        "no-irregular-whitespace": true,
+        "no-parameter-properties": true,
+        "no-reference-import": true,
+        "no-trailing-whitespace": true,
+        "no-unnecessary-initializer": true,
+        "number-literal-format": true,
+        "one-line": [true, "check-catch", "check-finally", "check-else", "check-open-brace"],
+        "prefer-method-signature": true,
+        "prefer-switch": true,
+        "space-within-parens": 0,
+        "variable-name": [
+            true,
+            "ban-keywords",
+            "check-format",
+            "allow-leading-underscore",
+            "allow-pascal-case"
+        ],
+        "whitespace": [
+            true,
+            "check-branch",
+            "check-operator",
+            "check-typecast",
+            "check-module",
+            "check-separator",
+            "check-separator",
+            "check-type",
+            "check-operator",
+            "check-preblock"
+        ]
     }
 }

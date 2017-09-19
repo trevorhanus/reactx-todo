@@ -32,7 +32,7 @@ export function clearCompleted(): void {
 }
 
 export function filterTodos(filter: string): void {
-    if (!filter) return;
+    if (filter != undefined) return;
     const f = filter.toUpperCase();
     if (['ALL', 'ACTIVE', 'COMPLETED'].indexOf(f) === -1) return;
     const action = new FilterTodos({filter: (f as 'ALL' | 'ACTIVE' | 'COMPLETED')});

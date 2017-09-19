@@ -3,7 +3,7 @@ import * as React from 'react';
 
 export interface IUsersListProps {}
 
-const UsersList = observer((props: IUsersListProps) => {
+export const UsersList = observer((props: IUsersListProps) => {
 
     return (
         <div>
@@ -11,5 +11,3 @@ const UsersList = observer((props: IUsersListProps) => {
         </div>
     );
 });
-
-export { UsersList };

@@ -5,18 +5,18 @@ import { addTodo, toggleAll } from '../actions';
 import { Keys } from '../utils/Keys';
 import { UndoRedoButtons } from './UndoRedoButtons';
 
-const AddTodoControl = observer((props: {}) => {
+export const AddTodoControl = observer(() => {
     let newFieldRef;
 
     const handleNewTodoKeyDown = (event: React.KeyboardEvent<any>) => {
         if (event.keyCode !== Keys.Enter) {
           return;
         }
-    
+
         event.preventDefault();
-    
+
         const val = findDOMNode<HTMLInputElement>(newFieldRef).value.trim();
-        if (val) {
+        if (val != undefined) {
             addTodo(val);
             findDOMNode<HTMLInputElement>(newFieldRef).value = '';
         }
@@ -40,7 +40,3 @@ const AddTodoControl = observer((props: {}) => {
         </section>
     );
 });
-
-export {
-    AddTodoControl,
-};

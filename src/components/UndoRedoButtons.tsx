@@ -2,9 +2,8 @@ import { Actions } from '@trevorhanus/actions';
 import * as classNames from 'classnames';
 import { inject, observer } from 'mobx-react';
 import * as React from 'react';
-import { findDOMNode } from 'react-dom';
 
-const UndoRedoButtons = inject()(observer((props: {}) => {
+export const UndoRedoButtons = inject()(observer((props: {}) => {
     const canUndo = Actions.dispatcher.canUndo;
     const canRedo = Actions.dispatcher.canRedo;
     const handleUndo = () => {
@@ -20,13 +19,13 @@ const UndoRedoButtons = inject()(observer((props: {}) => {
 
     return (
         <div className="undo-redo-buttons">
-            <button 
+            <button
                 className={classNames({disabled: !canUndo})}
                 onClick={handleUndo}
             >
                 Undo
             </button>
-            <button 
+            <button
                 className={classNames({disabled: !canRedo})}
                 onClick={handleRedo}
             >
@@ -35,7 +34,3 @@ const UndoRedoButtons = inject()(observer((props: {}) => {
         </div>
     );
 }));
-
-export {
-    UndoRedoButtons,
-};

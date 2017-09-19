@@ -1,7 +1,7 @@
 import { Action } from '@trevorhanus/actions';
 import { Store } from '../stores/Store';
 
-export class FetchTodos extends Action<Store,any> {
+export class FetchTodos extends Action<Store, any> {
     name = 'FETCH_TODOS';
 
     constructor() {

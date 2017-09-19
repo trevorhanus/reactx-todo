@@ -15,11 +15,10 @@ export const TodoList = inject('todoStore')(observer((props: ITodoListProps) => 
     });
 
     return (
-        
         <ul className="todo-list">
             {
-                todoStore.loading 
-                ? <div> Loading </div> 
+                todoStore.loading
+                ? <div> Loading </div>
                 : todos
             }
         </ul>

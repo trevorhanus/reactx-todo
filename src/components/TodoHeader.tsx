@@ -5,7 +5,7 @@ export interface ITodoHeaderProps {
     title: string;
 }
 
-const TodoHeader = observer((props: ITodoHeaderProps) => {
+export const TodoHeader = observer((props: ITodoHeaderProps) => {
 
     return (
         <header className="header">
@@ -13,5 +13,3 @@ const TodoHeader = observer((props: ITodoHeaderProps) => {
         </header>
     );
 });
-
-export { TodoHeader };
