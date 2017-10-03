@@ -1,4 +1,4 @@
-import { IViewState, Route } from '@trevorhanus/reactx';
+import { IViewState, Route } from '@trevorhanus/reactx-router';
 import { fetchTodos, filterTodos } from '../actions';
 import { TodoApp } from '../components/App';
 import { Auth } from '../components/Auth';
@@ -28,12 +28,14 @@ const app = new Route({
             path: '/',
             component: TodoList,
             acceptedQueryParams: ['filter'],
-            beforeEnter: () => {
-                fetchTodos();
+            beforeEnter: (state: IViewState, store: Store) => {
+                if (store.todos.isEmpty) {
+                    fetchTodos();
+                }
             },
             onEnter: (state: IViewState) => {
                 const { query } = state;
-                if (query.filter !== null && query.filter !== undefined) {
+                if (query.filter != null) {
                     filterTodos(query.filter);
                 }
             },

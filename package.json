@@ -5,7 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "@trevorhanus/actions": "^0.0.4",
-    "@trevorhanus/reactx": "^0.0.17",
+    "@trevorhanus/reactx-router": "^0.0.20",
     "@types/classnames": "^2.2.3",
     "@types/uuid": "^3.4.2",
     "classnames": "^2.2.5",

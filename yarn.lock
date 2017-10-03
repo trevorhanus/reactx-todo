@@ -11,9 +11,9 @@
     typescript "^2.5.2"
     uuid "^3.1.0"
 
-"@trevorhanus/reactx@^0.0.17":
-  version "0.0.17"
-  resolved "https://registry.yarnpkg.com/@trevorhanus/reactx/-/reactx-0.0.17.tgz#35d4729e1f29ec2f6f58d93d0d53cc94e8ea6461"
+"@trevorhanus/reactx-router@^0.0.20":
+  version "0.0.20"
+  resolved "https://registry.yarnpkg.com/@trevorhanus/reactx-router/-/reactx-router-0.0.20.tgz#bc06244083a4eb97e6c4009fcec6a8a64deb9d7f"
   dependencies:
     "@trevorhanus/timer" "^0.1.0"
     "@types/react" "^16.0.5"

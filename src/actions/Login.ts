@@ -1,5 +1,5 @@
 import { Action } from '@trevorhanus/actions';
-import { router } from '@trevorhanus/reactx';
+import { router } from '@trevorhanus/reactx-router';
 import { action } from 'mobx';
 import { Store } from '../stores/Store';
 

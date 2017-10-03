@@ -11,8 +11,7 @@ const commonConfig = {
         new webpack.HotModuleReplacementPlugin(),
         new TSLintPlugin({
             files: ['./src/**/*.ts', './src/**/*.tsx', './src/**/*.d.ts'],
-            project: './tsconfig.json',
-            strictNullChecks: true
+            project: './tsconfig.json'
         }),
     ],
     module: {

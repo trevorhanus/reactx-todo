@@ -1,4 +1,4 @@
-import { router, Router } from '@trevorhanus/reactx';
+import { router, ReactxRouter } from '@trevorhanus/reactx-router';
 import { observer, Provider } from 'mobx-react';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
@@ -13,7 +13,7 @@ const App = observer(() => {
         <Provider
             todoStore={store.todos}
             >
-            <Router />
+            <ReactxRouter />
         </Provider>
     );
 });

@@ -1,4 +1,4 @@
-import { router } from '@trevorhanus/reactx';
+import { router } from '@trevorhanus/reactx-router';
 import { observer } from 'mobx-react';
 import * as React from 'react';
 

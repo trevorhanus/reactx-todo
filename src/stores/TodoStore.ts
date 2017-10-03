@@ -34,6 +34,11 @@ export class TodoStore {
     }
 
     @computed
+    get isEmpty(): boolean {
+        return this._todos.size <= 0;
+    }
+
+    @computed
     get todos(): Todo[] {
         switch (this._filter) {
             case 'ACTIVE':

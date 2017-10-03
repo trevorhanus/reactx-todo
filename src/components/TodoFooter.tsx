@@ -1,4 +1,4 @@
-import { Link, router } from '@trevorhanus/reactx';
+import { Link, router } from '@trevorhanus/reactx-router';
 import * as classNames from 'classnames';
 import { inject, observer } from 'mobx-react';
 import * as React from 'react';

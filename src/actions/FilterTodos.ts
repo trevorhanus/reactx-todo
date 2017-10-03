@@ -13,6 +13,7 @@ export class FilterTodos extends Action<Store, IFilterTodosParams> {
     }
 
     invoke(store: Store): void {
-        store.todos.filterBy(this.params.filter);
+        const filter = this.params.filter.toUpperCase();
+        store.todos.filterBy(filter as 'ALL' | 'ACTIVE' | 'COMPLETED');
     }
 }
